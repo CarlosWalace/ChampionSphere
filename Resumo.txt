@@ -1,0 +1,26 @@
+*Técnologias: utilizada, node, mongo, vue
+
+*Dependências: 
+bcrypt: Cria uma hash pra senha do usuário
+body-parcer: Pra entender o quem vem do body quando tem uma requisição
+cors:Pra tratar as requisições
+Express: Rotas
+Jsonwetoken: Forma que vai ser feita a autenticação
+Multer: upload de imagem
+
+*Estrutura de pastas
+helpers: aquivos para ajudar durante a aplicação
+models: Parte do mongoose
+public: Imagens
+routes: Rotas 
+server.js: Aquivo central
+
+Entidades o usuário e o evento
+
+Primeniro a ser feito as rotas de autenticação dos usuários
+
+FONTEND 
+Babel - interpretação de js moderno
+Router - pra fazer o roteamento das páginas do sistema de maneira mais fácil
+Vue x para gerenciar estado
+vuex persist - salva os dados por mais tempo no storage do vue
