@@ -2,7 +2,7 @@
 <template>
     <div class="register">
         <h1>Criar uma conta</h1>
-        <UserForm />
+        <UserForm :user="{}" page="register" btnText="Sign-Up" />
     </div>
 </template>
 

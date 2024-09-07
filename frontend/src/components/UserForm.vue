@@ -1,6 +1,8 @@
 <template>
     <div>
-        <form action ="" id="user-form">
+        <Message :msg="msg" :msgClass="msgClass" />
+        <form id="user-form" @submit="page === 'register' ? register($event): update($event) ">
+        <!--Verifica se a página é igual ao register-->
             <div class="input-container">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" v-model="name" placeholder="Enter your name">
@@ -17,16 +19,17 @@
                 <label for="confirmpassword">Confirm Your Password</label>
                 <input type="password" id="confirmpassword" name="confirmpassword" v-model="confirmpassword" placeholder="Confirm password">
             </div>
-            
+            <InputSubmit :text="btnText"/>
         </form>
     </div>
-    <InputSubmit :text="btnText"/>
 </template>
 
 <script>
 
 
 import InputSubmit from './form/InputSubmit.vue';
+import Message from './Message.vue';
+
 
 
 export default {
@@ -37,15 +40,78 @@ export default {
             email:null,
             password:null,
             confirmpassword:null,
-            btnText:"sign up"
+            msg: null,
+            msgClass: null
         }
     },
+    props: ["user", "page", "btnText"],
     components : {
-        InputSubmit
+        InputSubmit,
+        Message
+    },
+    methods: {
+        async register(e){
+            e.preventDefault();//Não faz submição por HTML
+            console.log("funcionou")
+        }
     }
 }
 </script>
 
 <style scoped>
+
+#user-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(230, 230, 230);
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.300);
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: blueviolet;
+    outline: none;
+}
+
+label {
+    margin-bottom: 5px;
+    font-size: px;
+    color: #333;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: aquamarine;
+}
+
 
 </style>
