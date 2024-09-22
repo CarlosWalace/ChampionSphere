@@ -18,7 +18,6 @@
   background-color: aquamarine;
   height: 200px;
   width: 100%; /* Faz o footer ocupar toda a largura da tela */
-  position: fixed; /* Fixa o footer na tela */
   bottom: 0; /* Posiciona o footer na parte inferior */
   left: 0; /* Garante que o footer comece no início da tela */
   margin: 0; /* Remove qualquer margem */

@@ -6,17 +6,39 @@
         <h2 id="nav-title">ChampionSphere</h2>
         <div id="nav-links">
         <router-link to="/">Home</router-link>
-        <router-link to="/about">Login</router-link>
-        <router-link to="/register">Sign-Up</router-link>
+        <router-link to="/login" v-show="!authenticated">Login</router-link>
+        <router-link to="/register" v-show="!authenticated">Sign-Up</router-link>
+        <router-link to="/dashboard" v-show="authenticated">Dashboard</router-link>
+        <router-link to="/profile" v-show="authenticated">Profile</router-link>
+        <button @click="logout($event)" v-show="authenticated">Logout</button>
         </div>
     </div>
 </template>
 
 <script>
 
+import { mapState } from 'vuex';
+
 
 export default{
-    name: "Navbar"
+    name: "Navbar",
+    methods: {
+        logout(e){
+            
+            e.preventDefault();
+
+            //event to lout the user
+            this.$store.commit("logout")
+            //redirect
+            this.$router.push("/")
+        }
+    },
+    //life cicle hoock
+    computed: {
+        ...mapState([
+            "authenticated"
+        ])
+    }
 }
 </script>
 
@@ -44,7 +66,7 @@ export default{
 }
 
 #logo-container, #nav-links{
-    width: 300 px;
+    width: 300px;
 }
 
 #nav-links {

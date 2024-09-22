@@ -24,3 +24,6 @@ Babel - interpretação de js moderno
 Router - pra fazer o roteamento das páginas do sistema de maneira mais fácil
 Vue x para gerenciar estado
 vuex persist - salva os dados por mais tempo no storage do vue
+
+
+Na aplicação irei utilizar a biblioteca fetch 

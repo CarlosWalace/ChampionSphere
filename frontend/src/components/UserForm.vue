@@ -52,7 +52,59 @@ export default {
     methods: {
         async register(e){
             e.preventDefault();//Não faz submição por HTML
-            console.log("funcionou")
+            
+            const data ={
+                name:this.name,
+                email: this.email,
+                password: this.password,
+                confirmpassword: this.confirmpassword
+            }
+
+            const jasonData = JSON.stringify(data) // é transformado em um json válido
+
+            //fetch retorna uma promise alternativa ao axios por exemplo
+            await fetch("http://localhost:3000/api/auth/register",{
+                method: "POST",
+                headers: {"content-type":"application/json"},
+                body: jasonData
+            })
+            .then((resp)=>resp.json())
+            .then((data)=>{
+
+                let auth = false;
+
+                if(data.error){
+                this.msg = data.error;
+                this.msgClass = "error";
+                } else {
+                
+
+                    auth = true;
+
+                    this.msg = data.msg;
+                    this.msgClass = "success";
+
+                    // send a event to auth and the user 
+                    this.$store.commit("authenticate", { token: data.token, userId: data.userId})
+
+                }
+
+                setTimeout(() => {
+
+                    if(!auth){
+                    this.msg = null
+                    } else {
+                       // redirect
+                    this.$router.push("dashboard");
+                    }
+                    
+                }, 2000);
+
+
+            })
+            .catch((err) =>{
+                console.log(err)
+            })
         }
     }
 }
@@ -75,6 +127,7 @@ export default {
 .input-container {
     display: flex;
     flex-direction: column;
+    text-align: left;
 }
 
 input[type="text"], input[type="password"] {
@@ -94,7 +147,7 @@ input[type="text"]:focus, input[type="password"]:focus {
 
 label {
     margin-bottom: 5px;
-    font-size: px;
+    font-size: 14px;
     color: #333;
 }
 
