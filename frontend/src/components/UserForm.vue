@@ -3,12 +3,13 @@
         <Message :msg="msg" :msgClass="msgClass" />
         <form id="user-form" @submit="page === 'register' ? register($event): update($event) ">
         <!--Verifica se a página é igual ao register-->
+            <input type="hidden" name="id" id="id" v-model="id" />
             <div class="input-container">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" v-model="name" placeholder="Enter your name">
             </div>
             <div class="input-container">
-                <label for="name">E-mail</label>
+                <label for="email">E-mail</label>
                 <input type="text" id="email" name="email" v-model="email" placeholder="Enter your e-mail">
             </div>
             <div class="input-container">
@@ -36,12 +37,13 @@ export default {
     name: "RegisterForm",
     data() {
         return {
-            name: null,
-            email:null,
-            password:null,
-            confirmpassword:null,
+            id: this.user._id || null,
+            name: this.user.name || null,
+            email: this.user.email || null,
+            password: null,
+            confirmpassword: null,
             msg: null,
-            msgClass: null
+            msgClass: null,
         }
     },
     props: ["user", "page", "btnText"],
@@ -60,13 +62,13 @@ export default {
                 confirmpassword: this.confirmpassword
             }
 
-            const jasonData = JSON.stringify(data) // é transformado em um json válido
+            const jsonData = JSON.stringify(data) // é transformado em um json válido
 
             //fetch retorna uma promise alternativa ao axios por exemplo
             await fetch("http://localhost:3000/api/auth/register",{
                 method: "POST",
                 headers: {"content-type":"application/json"},
-                body: jasonData
+                body: jsonData
             })
             .then((resp)=>resp.json())
             .then((data)=>{
@@ -105,6 +107,53 @@ export default {
             .catch((err) =>{
                 console.log(err)
             })
+        },
+        async update(e){
+
+            e.preventDefault();
+
+            const data ={
+                id: this.id,
+                name:this.name,
+                email: this.email,
+                password: this.password,
+                confirmpassword: this.confirmpassword
+            }
+
+            const jsonData = JSON.stringify(data) // é transformado em um json válido
+
+            //get token
+            const token = this.$store.getters.token;
+
+            await fetch("http://localhost:3000/api/user",{
+                method: "PATCH",
+                headers: {"content-type":"application/json",
+                "auth-token": token 
+                },
+                body: jsonData
+            })
+            .then((resp)=>resp.json())
+            .then((data)=>{
+
+                if(data.error){
+                    this.msg = data.error;
+                    this.msgClass = "error";
+                } else {
+
+                    this.msg = data.msg;
+                    this.msgClass = "success";
+                }
+
+                setTimeout(() => {
+
+                    this.msg = null;
+                    
+                }, 2000);
+            })
+            .catch((err) =>{
+                console.log(err)
+            })
+            
         }
     }
 }
@@ -148,7 +197,7 @@ input[type="text"]:focus, input[type="password"]:focus {
 label {
     margin-bottom: 5px;
     font-size: 14px;
-    color: #333;
+    color:black;
 }
 
 input[type="submit"] {

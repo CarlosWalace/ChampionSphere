@@ -13,19 +13,20 @@
 
 </script>
 
+
  <style>
-  footer {
+
+/* Estilos para o footer */
+footer {
   background-color: aquamarine;
   height: 200px;
-  width: 100%; /* Faz o footer ocupar toda a largura da tela */
-  bottom: 0; /* Posiciona o footer na parte inferior */
-  left: 0; /* Garante que o footer comece no início da tela */
-  margin: 0; /* Remove qualquer margem */
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.300);
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.3);
+  margin-top: auto; /* Empurra o footer para o final da página */
 }
 
 

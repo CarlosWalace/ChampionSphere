@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <Navbar />
     <router-view class="container" />
     <Footer />
@@ -14,30 +14,42 @@ export default {
   name: "App",
   components: {
     Navbar,
-    Footer
-  }
-}
+    Footer,
+  },
+};
 </script>
 
 <style>
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: black
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: black;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Garante que o conteúdo ocupe a tela toda */
 }
 
 .container {
-  min-height: 300px;
+  flex: 1; /* Faz o conteúdo crescer e empurrar o footer para baixo */
 }
 
-a{
-  transition: .5s
+a {
+  transition: 0.5s;
 }
 
-a:hover{
+a:hover {
   color: purple;
-
 }
 </style>

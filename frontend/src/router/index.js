@@ -5,6 +5,7 @@ import RegisterView from '../views/Register.vue'
 import LoginView from '../views/Login.vue'
 import ProfileView from '../views/Profile.vue'
 import DashboardView from '../views/Dashboard.vue'
+import NewEventView from '../views/NewEvent.vue'
 import store from '../store/index'
 
 const routes = [
@@ -52,6 +53,14 @@ const routes = [
     path: '/dashboard',
     name: 'Dashboard',
     component: DashboardView,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/newevent',
+    name: 'NewEvent',
+    component: NewEventView,
     meta: {
       requiresAuth: true
     }

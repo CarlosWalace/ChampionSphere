@@ -91,8 +91,8 @@ router.post("/login", async (req, res) => {
   //create tokken
   const token = jwt.sign(
     {
-      name: User.name,
-      id: User._id,
+      name: user.name,
+      id: user._id,
     },
     "secretkey"
   );

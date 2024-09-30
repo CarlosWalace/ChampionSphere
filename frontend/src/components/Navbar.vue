@@ -61,27 +61,29 @@ export default{
 }
 
 #nav-title {
-    font-size:2rem ;
-    font-weight: 500;
-}
+    font-size: 3rem;
+    font-weight: 300;
+  }
 
-#logo-container, #nav-links{
-    width: 300px;
-}
+  #logo-container, #nav-links {
+    width: 400px;
+  }
 
-#nav-links {
+  #nav-links {
     display: flex;
     justify-content: flex-end;
-}
+  }
 
-button {
-    background-color: blueviolet;
+  button {
+    background-color: #FFF;
     border: none;
-    font-size: 12px;
+    font-size: 16px;
     cursor: pointer;
-}
+  }
 
-button:hover{
-    color:aquamarine;
-}
+  button:hover {
+    color: #c1b696;
+  }
+
+
 </style>

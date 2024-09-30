@@ -40,6 +40,7 @@
        .then((data) => {
 
         this.user = data.user;
+        this.componentKey += 1
         
        })
        .catch((err) =>{
