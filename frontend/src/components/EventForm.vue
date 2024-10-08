@@ -3,6 +3,7 @@
     <Message :msg="msg" :msgClass="msgClass" />
     <form id="event-form" enctype="multipart/form-data" @submit="page === 'newevent' ? 
     createEvent($event) : onUpdated($event)">
+    
     <input type="hidden" id="id" name="id" v-model="id">
     <input type="hidden" id="user_id" name="user_id" v-model="user_id">
             <div class="input-container">
@@ -35,12 +36,16 @@
 </template>
 
 <script>
-import Message from './Message.vue';
-import InputSubmit from './form/InputSubmit.vue';
+import InputSubmit from './form/InputSubmit'
+import Message from './Message'
 
 export default {
-    name: "EventForm",
-    data() {
+  name: "RegisterForm",
+  components: {
+    InputSubmit,
+    Message
+  },
+  data() {
       return {
         id: this.event._id || null,
         title: this.event.title || null,
@@ -53,45 +58,43 @@ export default {
         msgClass: null,
         showMiniImages: true,
       }
-    },
-    props: ["event", "page", "btnText"],
-    components: {
-        InputSubmit, Message
-    },
-    methods:{
-        async createEvent(e){
-            
-            e.preventDefault()
+  },
+  props: ["event", "page", "btnText"],
+  methods: {
+      async createEvent(e) {
+        
+        e.preventDefault();
 
-            const formData = new FormData();
+        const formData = new FormData();
 
-            formData.append('title', this.title);
-            formData.append('description', this.description);
-            formData.append('event_date', this.event_date);
-            formData.append('privacy', this.privacy);
+        formData.append('title', this.title)
+        formData.append('description', this.description)
+        formData.append('event_date', this.event_date)
+        formData.append('privacy', this.privacy)
 
-            if(this.photos.length > 0) {
-                for (const i of Object.keys(this.photos)) {
-                    formData.append('photos', this.photos[i])
-                }
+        if(this.photos.length > 0) {
+            for (const i of Object.keys(this.photos)) {
+                formData.append('photos', this.photos[i])
             }
+        }
 
-            const token = this.$store.getters.token;
+        // get token from state
+        const token = this.$store.getters.token;
 
-            await fetch("http://localhost:3000/api/event", {
+        await fetch("http://localhost:3000/api/event", {
             method: "POST",
             headers: {
                 "auth-token": token
             },
             body: formData
-            })
-            .then((resp) => resp.json())
-            .then((data) => {
+        })
+        .then((resp) => resp.json())
+        .then((data) => {
 
-                if(data.error) {
-                    this.msg = data.error;
-                    this.msgClass = "error";
-                } else {
+            if(data.error) {
+                this.msg = data.error;
+                this.msgClass = "error";
+            } else {
                 this.msg = data.msg;
                 this.msgClass = "success";
             }
@@ -100,25 +103,74 @@ export default {
 
                 this.msg = null;   
 
+                // redirect
                 if(!data.error) {                    
                     this.$router.push('dashboard');
                 }
-
+                
             }, 2000);
+
+        })
+        .catch((err) => {
+            console.log(err);
         })
 
-        },
-        onChange(e) {
+    
+      },
+      onChange(e) {
 
         this.photos = e.target.files;
         this.showMiniImages = false;
-        },
-        async update(e){
 
-            e.preventDefault()
+      },
+      async update(e) {
 
+        e.preventDefault();
+
+        const formData = new FormData();
+
+        formData.append('id', this.id);
+        formData.append('title', this.title);
+        formData.append('description', this.description);
+        formData.append('event_date', this.event_date);
+        formData.append('privacy', this.privacy);
+        formData.append('user_id', this.user_id);
+
+        if(this.photos.length > 0) {
+            for (const i of Object.keys(this.photos)) {
+                formData.append('photos', this.photos[i])
+            }
         }
+
+        // get token from state
+        const token = this.$store.getters.token;
+
+        await fetch("http://localhost:3000/api/events", {
+            method: "PATCH",
+            headers: {
+                "auth-token": token 
+            },
+            body: formData
+        })
+        .then((resp) => resp.json())
+        .then((data) => {
+
+            if(data.error) {
+                this.msg = data.error;
+                this.msgClass = "error"
+            } else {
+                this.msg = data.msg;
+                this.msgClass = "success";
+            }
+
+        })
+        setTimeout(() => {
+
+            this.msg = null;     
+            
+        }, 2000);
     }
+  }
 }
 </script>
 
@@ -153,15 +205,15 @@ export default {
         font-size: 16px;
     }
 
-    input[type="text"]{
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
-}
+    input[type="text"],input[type="date"],textarea{
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+    }
 
     .input-container label {
         margin-bottom: 10px;
@@ -170,11 +222,18 @@ export default {
 
     .checkbox-container {
         flex-direction: row;
+        
     }
 
     .checkbox-container input[type='checkbox'] {
         margin-left: 15px;
         margin-bottom: 13px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
     }
 
     .mini-images {

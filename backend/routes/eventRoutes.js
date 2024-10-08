@@ -38,8 +38,10 @@
     // verify user
 
     const token = req.header("auth-token");
+    console.log("Token recebido:", token);
 
     const userByToken = await getUserByToken(token)
+    console.log("Usuário encontrado:", userByToken);
 
     const userId = userByToken._id.toString();
 
@@ -122,6 +124,8 @@
         const user = await getUserByToken(token);
         
         const userId = user._id.toString();
+        console.log("ID do usuário:", userId);
+
 
         const eventId = req.params.id;
 
@@ -190,11 +194,12 @@
     })
 
     // update event
-    router.put("/", verifyToken, upload.fields([{ name: "photos"}]), async(req, res) =>{
-
+    router.patch("/", verifyToken, upload.fields([{ name: "photos"}]), async(req, res) =>{
+      
+      
       const title = req.body.title;
       const description = req.body.description;
-      const eventDate = req.body.eventDate;
+      const eventDate = req.body.event_date;
       const eventId = req.body.id;
       const eventUserId = req.body.user_Id;
 

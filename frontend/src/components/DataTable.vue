@@ -25,7 +25,7 @@
   import Message from './Message';
   
   export default {
-    name: "Footer",
+    name: "DataTable",
     props: ["events"],
     components: {
       Message

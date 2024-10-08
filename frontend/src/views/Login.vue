@@ -1,6 +1,6 @@
 <template>
     <div class="login">
-      <h1>Entrar no ChampionSphere</h1>
+      <h1>Login into your Account</h1>
       <LoginForm/>
     </div>
   </template>

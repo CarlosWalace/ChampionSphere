@@ -1,7 +1,7 @@
 
 <template>
     <div class="register">
-        <h1>Criar uma conta</h1>
+        <h1>Create new Account</h1>
         <UserForm :user="{}" page="register" btnText="Sign-Up" />
     </div>
 </template>

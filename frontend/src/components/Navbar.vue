@@ -1,7 +1,7 @@
 <template>
     <div id="nav">
         <router-link to="/" id="logo-container">
-        <img src="img/logo.png" alt="ChampionSphere">
+        <img src="/img/logo.png" alt="ChampionSphere">
         </router-link>
         <h2 id="nav-title">ChampionSphere</h2>
         <div id="nav-links">

@@ -1,7 +1,7 @@
 <template>
     <footer>
         <h3>ChampionSphere &copy; 2024</h3>
-        <p>A plataforma para compartilhar seus eventos e campeonatos de E esportes</p>
+        <p>The platform to share your E-sports events and championships</p>
     </footer>
 </template>
 

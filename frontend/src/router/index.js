@@ -6,6 +6,7 @@ import LoginView from '../views/Login.vue'
 import ProfileView from '../views/Profile.vue'
 import DashboardView from '../views/Dashboard.vue'
 import NewEventView from '../views/NewEvent.vue'
+import EditEventView from '../views/EditEvent.vue'
 import store from '../store/index'
 
 const routes = [
@@ -61,6 +62,14 @@ const routes = [
     path: '/newevent',
     name: 'NewEvent',
     component: NewEventView,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/editevent/:id',
+    name: 'EditEvent',
+    component: EditEventView,
     meta: {
       requiresAuth: true
     }

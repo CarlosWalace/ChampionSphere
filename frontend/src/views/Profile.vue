@@ -1,6 +1,6 @@
 <template>
     <div class="profile">
-      <h1>Editar perfil</h1>
+      <h1>Edit Profile</h1>
       <UserForm page="profile" :user="user" btnText="Edit" :key="componentKey"/>
     </div>
   </template>
