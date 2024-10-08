@@ -38,7 +38,7 @@
     // verify user
 
     const token = req.header("auth-token");
-    console.log("Token recebido:", token);
+    console.log("----------Token recebido:", token);
 
     const userByToken = await getUserByToken(token)
     console.log("Usuário encontrado:", userByToken);
@@ -201,7 +201,7 @@
       const description = req.body.description;
       const eventDate = req.body.event_date;
       const eventId = req.body.id;
-      const eventUserId = req.body.user_Id;
+      const eventUserId = req.body.user_id;
 
       let files = [];
 

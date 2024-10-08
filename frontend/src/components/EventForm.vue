@@ -2,7 +2,7 @@
    <div>
     <Message :msg="msg" :msgClass="msgClass" />
     <form id="event-form" enctype="multipart/form-data" @submit="page === 'newevent' ? 
-    createEvent($event) : onUpdated($event)">
+    createEvent($event) : update($event)">
     
     <input type="hidden" id="id" name="id" v-model="id">
     <input type="hidden" id="user_id" name="user_id" v-model="user_id">
@@ -145,7 +145,7 @@ export default {
         // get token from state
         const token = this.$store.getters.token;
 
-        await fetch("http://localhost:3000/api/events", {
+        await fetch("http://localhost:3000/api/event", {
             method: "PATCH",
             headers: {
                 "auth-token": token 
