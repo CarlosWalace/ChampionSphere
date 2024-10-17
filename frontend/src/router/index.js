@@ -7,6 +7,7 @@ import ProfileView from '../views/Profile.vue'
 import DashboardView from '../views/Dashboard.vue'
 import NewEventView from '../views/NewEvent.vue'
 import EditEventView from '../views/EditEvent.vue'
+import EventView from '../views/Event.vue'
 import store from '../store/index'
 
 const routes = [
@@ -73,6 +74,11 @@ const routes = [
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: '/event/:id',
+    name: 'Event',
+    component: EventView,
   },
 ]
 

@@ -44,9 +44,9 @@ export default {
   components: {
     InputSubmit,
     Message
-  },
+},
   data() {
-      return {
+    return {
         id: this.event._id || null,
         title: this.event.title || null,
         description: this.event.description || null,
@@ -57,8 +57,8 @@ export default {
         msg: null,
         msgClass: null,
         showMiniImages: true,
-      }
-  },
+    }
+},
   props: ["event", "page", "btnText"],
   methods: {
       async createEvent(e) {
