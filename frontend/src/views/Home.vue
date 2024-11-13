@@ -1,17 +1,19 @@
+
 <template>
     <div class="home">
         <h1>Last Events</h1>
         <div class="events-container">
-            <div class="events-container" v-for="(event, index) in events" :key="index">
-                <div class="event-img" :style="{'background-image': 'url(' + event.photos[0] +')'}"></div>
+            <div class="event-container" v-for="(event, index) in events" :key="index">
+                <img class="event-img" :src="event.photos[0]" alt="Event image">
                 <router-link :to="`/event/${event._id}`" class="event-title">{{ event.title }}</router-link>
-                <p class="event-date">Data: {{ event.eventDate }}</p>
+                <p class="event-date"><span>&nbsp;</span>Data: {{ event.eventDate }}</p>
                 <router-link :to="`/event/${event._id}`" class="event-details-btn">See more</router-link>
             </div>        
         </div>
         <p v-if="events.length == 0">Não há festas ainda...</p>
     </div>
 </template>
+
 <script>
 
 export default {
@@ -64,6 +66,7 @@ export default {
     }
 }
 </script>
+
 <style scoped>
 
     .home {
@@ -81,6 +84,7 @@ export default {
         flex-wrap: wrap;
         max-width: 1000px;
         margin: 0 auto;
+        
     }
 
     .event-container {
@@ -92,16 +96,21 @@ export default {
 
     .event-img {
         width: 100%;
-        height: 200px;
-        margin-bottom: 12px;
+        height: 200px; /* Permite que a imagem ajuste sua altura */
+        min-height: 300px; /* Altura mínima para manter o layout */
         background-position: center;
-        background-size: cover;
+        background-size: cover; /* Mantém a proporção da imagem */
     }
 
     .event-title {
-        color: #25282e;
+        color: black;
         text-decoration: none;
         margin-bottom: 12px;
+        white-space: nowrap;       /* Impede quebra de linha */
+        overflow: hidden;          /* Esconde o texto excedente */
+        text-overflow: ellipsis;   /* Adiciona '...' ao final do texto */
+        display: block;
+        max-width: 100%;           /* Define o tamanho máximo que o texto pode ocupar */
     }
 
     .event-date {
