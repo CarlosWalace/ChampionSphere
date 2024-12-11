@@ -1,6 +1,6 @@
 <template>
     <div class="newevent">
-      <h1>Add your event:</h1>
+      <h1>Adicionar seu Evento:</h1>
       <EventForm :event="{}" page="newevent" btnText="Create new Event!" />
     </div>
   </template>

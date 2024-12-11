@@ -10,9 +10,9 @@
         </div>
       </div>
       <div class="event-details">
-        <p class="bold">Event Description:</p>
+        <p class="bold">Descrição do Evento:</p>
         <p class="event-description">{{ event.description }}</p>
-        <p class="bold">Event Date:</p>
+        <p class="bold">Data do Evento:</p>
         <p class="event-date">{{ event.eventDate }}</p>        
       </div>
     </div>
@@ -117,7 +117,7 @@ export default {
 .mini-image {
     width: 80px; /* Largura fixa para as miniaturas */
     height: 80px; /* Altura fixa para as miniaturas */
-    background-color: #CCC; /* Cor de fundo, caso a imagem não carregue */
+    background-color: rgb(230,230,230); /* Cor de fundo, caso a imagem não carregue */
     background-position: center; /* Centraliza a imagem */
     background-size: cover; /* Faz com que a imagem cubra todo o espaço disponível */
     background-repeat: no-repeat; /* Impede a repetição da imagem se ela não preencher todo o espaço */

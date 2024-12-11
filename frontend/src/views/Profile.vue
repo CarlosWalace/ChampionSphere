@@ -1,7 +1,7 @@
 <template>
     <div class="profile">
-      <h1>Edit Profile</h1>
-      <UserForm page="profile" :user="user" btnText="Edit" :key="componentKey"/>
+      <h1>Editar Perfil</h1>
+      <UserForm page="profile" :user="user" btnText="Editar" :key="componentKey"/>
     </div>
   </template>
   
@@ -26,24 +26,24 @@
       async getUser() {
 
        //
-       const id = this.$store.getters.userId;
-       const token = this.$store.getters.token;
+      const id = this.$store.getters.userId;
+      const token = this.$store.getters.token;
 
-       await fetch(`http://localhost:3000/api/user/${id}`, {
+      await fetch(`http://localhost:3000/api/user/${id}`, {
         method: "GET",
         headers: {
           "Content-type": "application/json",
           "auth-token": token
         }
-       })
-       .then((resp) => resp.json())
-       .then((data) => {
+      })
+      .then((resp) => resp.json())
+      .then((data) => {
 
         this.user = data.user;
         this.componentKey += 1
         
-       })
-       .catch((err) =>{
+      })
+      .catch((err) =>{
         console.log(err)       
       })
 

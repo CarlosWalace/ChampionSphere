@@ -1,24 +1,24 @@
 <template>
     <div class="editevent">
-      <h1>Edit Your Event:</h1>
-      <EventForm :event="event" page="editevent" btnText="Edit Event" :key="componentKey"  />
+    <h1>Editar seu evento:</h1>
+    <EventForm :event="event" page="editevent" btnText="Editar Evento" :key="componentKey"  />
     </div>
-  </template>
-  
-  <script>
-  import EventForm from '../components/EventForm.vue'
-  
-  export default {
-      components: {
-          EventForm
-      },
-      data() {
-          return {
-              event: {},
-              componentKey: 0
-          }
-      },
-      created() {
+</template>
+
+<script>
+    import EventForm from '../components/EventForm.vue'
+
+export default {
+    components: {
+        EventForm
+    },
+        data() {
+        return {
+            event: {},
+            componentKey: 0
+        }
+    },
+    created() {
             this.getEvent();
         
         },    
@@ -56,16 +56,17 @@
             } 
         }
     }
-  </script>
-  
-  <style scoped>
-      .editevent {
-          text-align: center;
-          padding-top: 40px;
-          padding-bottom: 100px;
-      }
-  
-      .editevent h1 {
-          margin-bottom: 40px;
-      }
-  </style>
+</script>
+
+<style scoped>
+    .editevent {
+        text-align: center;
+        padding-top: 40px;
+        padding-bottom: 100px;
+    }
+
+    .editevent h1 {
+        margin-bottom: 40px;
+    }
+    
+</style>

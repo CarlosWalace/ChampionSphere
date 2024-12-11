@@ -2,64 +2,51 @@
   <footer>
     <div id="footer_content">
       <div id="footer_contact">
-          <p>Social Midia</p>
-          <div id="footer_social_media">
-            <a href="#" class="footer-link" id="instagram">
+        <p>Mídias Sociais</p>
+        <div id="footer_social_media">
+          <a href="/" class="footer-link" id="instagram" aria-label="Instagram">
             <i class="fab fa-instagram" aria-hidden="true"></i>
           </a>
-          <a href="#" class="footer-link" id="facebook">
+          <a href="/" class="footer-link" id="facebook" aria-label="Facebook">
             <i class="fab fa-facebook" aria-hidden="true"></i>
           </a>
-          <a href="#" class="footer-link" id="whatsapp">
+          <a href="/" class="footer-link" id="whatsapp" aria-label="WhatsApp">
             <i class="fab fa-whatsapp" aria-hidden="true"></i>
           </a>
         </div>
       </div>
       <div id="footer_copyright">
-      &#169
-      2024 all right reserved
+        &#169; 2024 Direitos Reservados
       </div>
-  </div>
+    </div>
   </footer>
 </template>
 
 <script>
 export default {
-  name: "Footer"
-}
+  name: "Footer",
+};
 </script>
 
-<style>
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  letter-spacing: 1px;
-}
-
+<style scoped>
 footer {
   width: 100%;
-  color: lightgray;
+  color: rgb(230, 230, 230);
+  background-color: aquamarine;
+  text-align: center;
 }
 
-.footer-link{
-  text-decoration:none;
+.footer-link {
+  text-decoration: none;
 }
 
 #footer_content {
-  background-color: aquamarine;
   flex-direction: column;
-  align-items: center; 
-  text-align: center; 
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 1);
+  align-items: center;
+  text-align: center;
 }
 
-#footer_contact {
-  margin-top: 1rem; /* Ajuste o valor conforme necessário */
-}
-
-#footer_social_media{
+#footer_social_media {
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -67,7 +54,7 @@ footer {
   margin-bottom: 1rem;
 }
 
-#footer_social_media .footer-link{
+#footer_social_media .footer-link {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,16 +64,16 @@ footer {
   transition: all 0.4s;
 }
 
-#footer_social_media .footer-link i{
-  font-size: 1.25rem
+#footer_social_media .footer-link i {
+  font-size: 1.25rem;
 }
 
-#footer_social_media .footer-link:hover{
+#footer_social_media .footer-link:hover {
   opacity: 0.7;
 }
 
 #instagram {
-  background: linear-gradient(#7f37c9, #ff2992, #ff9807)
+  background: linear-gradient(#7f37c9, #ff2992, #ff9807);
 }
 
 #facebook {
@@ -97,8 +84,11 @@ footer {
   background: #25d366;
 }
 
-#footer_copyright{
-  background-color: blueviolet;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 1)
+#footer_copyright {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 1);
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 </style>

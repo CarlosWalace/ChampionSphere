@@ -16,7 +16,8 @@ const routes = [
     name: 'Home',
     component: HomeView,
     meta: {
-      requiresAuth: false
+      requiresAuth: false,
+      title: "ChampionSphere"
     }
   },
   {
@@ -24,7 +25,8 @@ const routes = [
     name: 'About',
     component: AboutView,
     meta: {
-      requiresAuth: false
+      requiresAuth: false,
+      title: "About"
     }
   },
   {
@@ -32,7 +34,8 @@ const routes = [
     name: 'Register',
     component: RegisterView,
     meta: {
-      requiresAuth: false
+      requiresAuth: false,
+      title: "Regitro"
     }
   },
   {
@@ -40,7 +43,8 @@ const routes = [
     name: 'Login',
     component: LoginView,
     meta: {
-      requiresAuth: false
+      requiresAuth: false,
+      title: "Login"
     }
   },
   {
@@ -48,7 +52,8 @@ const routes = [
     name: 'Profile',
     component: ProfileView,
     meta: {
-      requiresAuth: true
+      requiresAuth: true,
+      title: "Perfil"
     }
   },
   {
@@ -56,7 +61,8 @@ const routes = [
     name: 'Dashboard',
     component: DashboardView,
     meta: {
-      requiresAuth: true
+      requiresAuth: true,
+      title: "Painel"
     }
   },
   {
@@ -64,7 +70,8 @@ const routes = [
     name: 'NewEvent',
     component: NewEventView,
     meta: {
-      requiresAuth: true
+      requiresAuth: true,
+      title: "NovoEvento"
     }
   },
   {
@@ -72,13 +79,17 @@ const routes = [
     name: 'EditEvent',
     component: EditEventView,
     meta: {
-      requiresAuth: true
+      requiresAuth: true,
+      title: "EditarEvento"
     }
   },
   {
     path: '/event/:id',
     name: 'Event',
     component: EventView,
+    meta: {
+      title: "Evento"
+    }
   },
 ]
 
@@ -103,7 +114,10 @@ router.beforeEach((to, from, next) => {
   } else {
     next()
   }
+})
 
-});
+router.beforeEach((to, from) =>{
+  document.title = to.meta?.title ?? 'Default Title'
+})
 
 export default router

@@ -5,20 +5,20 @@
         <!--Verifica se a página é igual ao register-->
             <input type="hidden" name="id" id="id" v-model="id" />
             <div class="input-container">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" v-model="name" placeholder="Enter your name">
+                <label for="name">Nome</label>
+                <input type="text" id="name" name="name" v-model="name" placeholder="Digite seu name">
             </div>
             <div class="input-container">
                 <label for="email">E-mail</label>
-                <input type="text" id="email" name="email" v-model="email" placeholder="Enter your e-mail">
+                <input type="text" id="email" name="email" v-model="email" placeholder="Digite seu e-mail">
             </div>
             <div class="input-container">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" v-model="password" placeholder="Enter your password">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" v-model="password" placeholder="Digite sua senha">
             </div>
             <div class="input-container">
-                <label for="confirmpassword">Confirm Your Password</label>
-                <input type="password" id="confirmpassword" name="confirmpassword" v-model="confirmpassword" placeholder="Confirm password">
+                <label for="confirmpassword">Confirme sua senha</label>
+                <input type="password" id="confirmpassword" name="confirmpassword" v-model="confirmpassword" placeholder="Digite sua senha novamente">
             </div>
             <InputSubmit :text="btnText"/>
         </form>
@@ -182,7 +182,7 @@ export default {
 input[type="text"], input[type="password"] {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(230,230,230);
     border-radius: 5px;
     font-size: 16px;
     box-sizing: border-box;
@@ -204,7 +204,7 @@ input[type="submit"] {
     width: 100%;
     padding: 10px;
     background-color: blueviolet;
-    color: white;
+    color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -212,7 +212,10 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: aquamarine;
+    background-color: aquamarine; /* Cor de fundo no hover */
+    color: black; /* Cor do texto no hover (muda para preto) */
+    transform: scale(1.05); /* Leve ampliação no hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra mais intensa */
 }
 
 

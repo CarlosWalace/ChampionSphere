@@ -2,8 +2,7 @@ const mongoose = require ("mongoose");
 
 const EventSchema = new mongoose.Schema({
     title: {
-        type: String,
-        required: true
+        type: String
     },
     description: {
         type: String
@@ -16,6 +15,12 @@ const EventSchema = new mongoose.Schema({
     },
     privacy:{
         type: Boolean
+    },
+    accessibility:{
+        type: Boolean 
+    },
+    accessibilityDescription:{
+        type: String 
     },
     userId:{
         type: mongoose.ObjectId

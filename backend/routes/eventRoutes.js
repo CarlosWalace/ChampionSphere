@@ -17,11 +17,13 @@
 
     //create new event
     router.post("/", verifyToken, upload.fields([{ name: "photos"}]), async(req, res) =>{
-        
+    
     // req data
-    const title = req.body.title;
+    const title = req.body.title
     const description = req.body.description
-    const eventDate = req.body.event_date
+    const eventDate = req.body.eventDate
+    const accessibility = req.body.accessibility;
+    const accessibilityDescription = req.body.accessibilityDescription;
 
     let files = [];
 
@@ -32,8 +34,13 @@
     //validations
     if(title == "null" || description == "null" || eventDate == "null"){
 
-        return res.status(400).json({error: "Oa campos nome descrição e data são obrigatorios"})
+        return res.status(400).json({error: "Os campos nome descrição e data são obrigatorios"})
     }
+
+    if (accessibility === true && (accessibilityDescription === undefined || accessibilityDescription === null || accessibilityDescription.trim() === "")) {
+      return res.status(400).json({ error: "Descreva as opções de acessibilidade." });
+    }
+  
 
     // verify user
 
@@ -65,6 +72,8 @@
         eventDate: eventDate,
         photos: photos,
         privacy: req.body.privacy,
+        accessibility: req.body.accessibility,
+        accessibilityDescription: req.body.accessibilityDescription,
         userId: user._id.toString()
     });
 
@@ -134,7 +143,7 @@
         res.json({ error: null, event: event});
 
       }catch (error) {
-       return res.status(400).json ({error})
+        return res.status(400).json ({error})
       }
 
     });
@@ -144,7 +153,7 @@
 
     router.get("/:id", async (req, res)=>{
 
-     try{
+    try{
 
       const id = req.params.id;
 
@@ -169,10 +178,10 @@
         }
       }
 
-     }catch(error){
+    }catch(error){
 
       return res.status(400).json ({error: "Evento não existe"})
-     }
+    }
 
     });
 
@@ -199,8 +208,10 @@
       
       const title = req.body.title;
       const description = req.body.description;
-      const eventDate = req.body.event_date;
+      const eventDate = req.body.eventDate;
       const eventId = req.body.id;
+      const accessibility = req.body.accessibility;
+      const accessibilityDescription = req.body.accessibilityDescription;
       const eventUserId = req.body.user_id;
 
       let files = [];
@@ -214,6 +225,12 @@
 
           return res.status(400).json({error: "Os campos nome descrição e data são obrigatorios"})
       }
+
+      if (accessibility === true && (accessibilityDescription === undefined || accessibilityDescription === null || accessibilityDescription.trim() === "")) {
+        return res.status(400).json({ error: "Descreva as opções de acessibilidade." });
+    }
+    
+
       
       //verify user
       const token = req.header("auth-token");
@@ -233,6 +250,8 @@
         description: description,
         eventDate: eventDate,
         privacy: req.body.privacy,
+        accessibility: req.body.accessibility,
+        accessibilityDescription: req.body.accessibilityDescription,
         userId: userId
       }
       console.log("Dados recebidos:", { title, description, eventDate, eventId, eventUserId }); // Verificar dados recebidos
