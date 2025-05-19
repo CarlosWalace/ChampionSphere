@@ -14,31 +14,31 @@ Esta aplicação promove a inclusão de pessoas com deficiências visuais e audi
 
 ### 🔐 Login
 
-![Login](./src/assets/Login.png)
+![Login](./assets/Login.png)
 
 ### 📝 Criação de Conta
 
-![Criação de Conta](./src/assets/Criacao-de-Conta.png)
+![Criação de Conta](./assets/Criacao-de-Conta.png)
 
 ### ➕ Criação de um Novo Evento
 
-![Criação de um Novo Evento](./src/assets/Criacao-de-um-Novo-Evento.png)
+![Criação de um Novo Evento](./assets/Criacao-de-um-Novo-Evento.png)
 
 ### 🎛️ Painel de Eventos
 
-![Painel de Eventos](./src/assets/Painel-de-Eventos.png)
+![Painel de Eventos](./assets/Painel-de-Eventos.png)
 
 ### ✏️ Edição de Evento
 
-![Edição de Evento](./src/assets/Edicao-de-Eventos.png)
+![Edição de Evento](./assets/Edicao-de-Eventos.png)
 
 ### 🙋‍♂️ Edição de Perfil
 
-![Edição de Perfil](./src/assets/Edicao-de-Perfil.png)
+![Edição de Perfil](./assets/Edicao-de-Perfil.png)
 
 ### 🧏‍♂️ V-LIBRAS em Funcionamento
 
-![V-LIBRAS funcionando](./src/assets/V-LIBRAS-funcionando.png)
+![V-LIBRAS funcionando](./assets/V-LIBRAS-funcionando.png)
 
 ---
 
