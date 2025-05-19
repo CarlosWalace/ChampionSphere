@@ -54,11 +54,10 @@ Esta aplicação promove a inclusão de pessoas com deficiências visuais e audi
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Frontend**: Vue.js 3, Vuex, Vue Router, Font Awesome
+- **Frontend**: Vue.js
 - **Backend**: Node.js, Express, MongoDB, Mongoose
 - **Acessibilidade**: Axe-core, ARC Toolkit, V-LIBRAS
 - **Autenticação**: JWT
-- **Upload de imagens**: Multer
 
 ---
 
@@ -75,8 +74,7 @@ Esta aplicação promove a inclusão de pessoas com deficiências visuais e audi
 
 **Carlos Walace Cordeiro Rodrigues**  
 Aluno de Ciência da Computação – PUC Minas  
-📧 carloswalace1210@gmail.com  
-🔗 [GitHub - @CarlosWalace](https://github.com/CarlosWalace)
+📧 carloswalace1210@gmail.com 
 
 ---
 
