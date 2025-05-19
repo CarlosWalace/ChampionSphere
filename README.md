@@ -1,71 +1,85 @@
 # 🎮 Plataforma Inclusiva de Eventos de eSports
 
-![Banner do Projeto](./src/assets/banner.png)
-
 > Uma plataforma para cadastro e gestão de eventos de eSports com foco na **inclusão de pessoas com deficiências sensoriais**.
 
 ---
 
 ## 🧠 Visão Geral
 
-Esta aplicação foi desenvolvida com o propósito de promover **acessibilidade e inclusão digital** no universo dos esportes eletrônicos. Pessoas com deficiência auditiva e visual podem utilizar a plataforma com facilidade, graças às ferramentas e práticas adotadas durante o desenvolvimento.
-
----
-
-## ✨ Funcionalidades em Destaque
-
-- Cadastro e gerenciamento de **eventos públicos ou privados**
-- Autenticação com **JWT**
-- Interface construída com **Vue.js** (Vue CLI)
-- Acessibilidade com ferramentas como **Axe-core**, **ARC Toolkit** e **V-Libras**
-- Interface intuitiva, com **componentização**, suporte a **leitores de tela**, **modo de contraste** e **uso de landmarks semânticos**
+Esta aplicação promove a inclusão de pessoas com deficiências visuais e auditivas no cenário dos esportes eletrônicos. A plataforma permite o cadastro, gerenciamento e visualização de eventos de forma acessível e intuitiva.
 
 ---
 
 ## 🖼️ Capturas de Tela
 
-### 📌 Página Inicial (Eventos Públicos)
+### 🔐 Login
 
-![Página Inicial](./src/assets/home-preview.png)
+![Login](./src/assets/Login.png)
 
-### 🧾 Dashboard com Eventos Cadastrados
+### 📝 Criação de Conta
 
-![Dashboard](./src/assets/dashboard-preview.png)
+![Criação de Conta](./src/assets/Criacao-de-Conta.png)
 
-> ✅ *Você pode adicionar imagens em `src/assets` com o nome exato acima ou personalizar.*
+### ➕ Criação de um Novo Evento
+
+![Criação de um Novo Evento](./src/assets/Criacao-de-um-Novo-Evento.png)
+
+### 🎛️ Painel de Eventos
+
+![Painel de Eventos](./src/assets/Painel-de-Eventos.png)
+
+### ✏️ Edição de Evento
+
+![Edição de Evento](./src/assets/Edicao-de-Eventos.png)
+
+### 🙋‍♂️ Edição de Perfil
+
+![Edição de Perfil](./src/assets/Edicao-de-Perfil.png)
+
+### 🧏‍♂️ V-LIBRAS em Funcionamento
+
+![V-LIBRAS funcionando](./src/assets/V-LIBRAS-funcionando.png)
+
+---
+
+## 🚀 Funcionalidades
+
+- Cadastro de usuários com autenticação JWT
+- Criação, edição e exclusão de eventos
+- Interface responsiva e acessível
+- Integração com V-LIBRAS
+- Testes de acessibilidade com Axe-core e ARC Toolkit
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-| Camada       | Tecnologias                                                                 |
-|--------------|------------------------------------------------------------------------------|
-| **Frontend** | Vue.js 3, Vue Router, Vuex, FontAwesome, Tailwind CSS                       |
-| **Backend**  | Node.js, Express, MongoDB, JWT, Multer, Mongoose                            |
-| **Acessibilidade** | Axe-core, ARC Toolkit, V-Libras, padrões WCAG 2.2                          |
+- **Frontend**: Vue.js 3, Vuex, Vue Router, Font Awesome
+- **Backend**: Node.js, Express, MongoDB, Mongoose
+- **Acessibilidade**: Axe-core, ARC Toolkit, V-LIBRAS
+- **Autenticação**: JWT
+- **Upload de imagens**: Multer
 
 ---
 
-## ♿ Acessibilidade
+## 🧭 Como Funciona (sem rodar)
 
-Foram adotadas práticas reais de acessibilidade:
-
-- Uso de landmarks semânticos (`<header>`, `<main>`, `<footer>`)
-- Correção de contraste e textos alternativos (`alt`)
-- Testes com leitores de tela e ferramentas automatizadas
-- Integração com **V-LIBRAS** para tradução automática para Libras
+1. O usuário acessa os eventos públicos logo na tela inicial.
+2. Pode criar sua conta, fazer login e começar a cadastrar seus próprios eventos.
+3. Cada evento pode ser público ou privado.
+4. Há uma dashboard com gerenciamento completo de eventos e dados do perfil.
 
 ---
 
-## 🚀 Como funciona (sem rodar)
+## 👨‍💻 Autor
 
-1. A página inicial exibe eventos públicos.
-2. Usuários podem se cadastrar e logar.
-3. Ao logar, podem criar novos eventos, definir visibilidade (público/privado), editar perfil.
-4. Tudo com foco em **simplicidade de navegação** e **acessibilidade**.
+**Carlos Walace Cordeiro Rodrigues**  
+Aluno de Ciência da Computação – PUC Minas  
+📧 carloswalace1210@gmail.com  
+🔗 [GitHub - @CarlosWalace](https://github.com/CarlosWalace)
 
 ---
 
-## 📁 Estrutura da Aplicação
+## 📝 Projeto Acadêmico
 
-
+Trabalho de conclusão com ênfase em **acessibilidade digital** e **inclusão em plataformas web**.
