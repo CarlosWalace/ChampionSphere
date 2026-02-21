@@ -61,7 +61,7 @@ Esta aplicação promove a inclusão de pessoas com deficiências visuais e audi
 
 ---
 
-## 🧭 Como Funciona (sem rodar)
+## 🧭 Como Funciona
 
 1. O usuário acessa os eventos públicos logo na tela inicial.
 2. Pode criar sua conta, fazer login e começar a cadastrar seus próprios eventos.
@@ -69,6 +69,43 @@ Esta aplicação promove a inclusão de pessoas com deficiências visuais e audi
 4. Há uma dashboard com gerenciamento completo de eventos e dados do perfil.
 
 ---
+
+## 📦 Como Rodar o Projeto
+
+1. Clone o repositório
+bashgit clone https://github.com/CarlosWalace/ChampionSphere.git
+cd ChampionSphere
+2. Configure as variáveis de ambiente
+Dentro da pasta backend/, crie um arquivo .env com base no exemplo abaixo:
+envPORT=3000
+MONGO_URI=mongodb://localhost:27017/championsphere
+JWT_SECRET=sua_chave_secreta_aqui
+
+⚠️ Substitua MONGO_URI pela sua string de conexão do MongoDB Atlas, se preferir usar a nuvem.
+
+
+3. Rodando o Backend
+bashcd backend
+npm install
+npm start
+O servidor estará disponível em: http://localhost:3000
+
+4. Rodando o Frontend
+Abra um novo terminal e execute:
+bashcd frontend
+npm install
+npm start
+A aplicação estará disponível em: http://localhost:8080
+
+
+
+## ♿ Acessibilidade
+
+O projeto foi desenvolvido com foco em inclusão digital:
+
+V-LIBRAS: Widget integrado para tradução de conteúdo em Língua Brasileira de Sinais (LIBRAS).
+Axe-core: Testes automatizados de acessibilidade durante o desenvolvimento.
+ARC Toolkit: Auditoria e validação de conformidade com as diretrizes WCAG.
 
 ## 👨‍💻 Autor
 
