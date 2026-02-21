@@ -97,7 +97,7 @@ npm install
 npm start
 A aplicação estará disponível em: http://localhost:8080
 
-
+---
 
 ## ♿ Acessibilidade
 
@@ -106,6 +106,8 @@ O projeto foi desenvolvido com foco em inclusão digital:
 V-LIBRAS: Widget integrado para tradução de conteúdo em Língua Brasileira de Sinais (LIBRAS).
 Axe-core: Testes automatizados de acessibilidade durante o desenvolvimento.
 ARC Toolkit: Auditoria e validação de conformidade com as diretrizes WCAG.
+
+---
 
 ## 👨‍💻 Autor
 
